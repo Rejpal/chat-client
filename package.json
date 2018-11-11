@@ -1,0 +1,53 @@
+{
+  "name": "chat-client",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "flow-bin": "^0.84.0",
+    "flow-typed": "^2.5.1",
+    "mobx": "^5.5.2",
+    "mobx-react": "^5.3.6",
+    "mobx-state-tree": "^3.7.1",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-scripts": "2.0.5",
+    "socket.io-client": "^2.1.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "pretest": "npm run lint &&  npm run flow",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "flow-typed": "flow-typed install",
+    "flow": "flow check",
+    "lint": "./node_modules/.bin/standard --parser babel-eslint --plugin flowtype",
+    "lint-fix": "./node_modules/.bin/standard --fix"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "standard": {
+    "ignore": [
+      "build/*",
+      "flow-typed/npm/*"
+    ],
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "globals": [
+      "fetch"
+    ]
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "eslint-plugin-flowtype": "^3.1.4",
+    "standard": "^12.0.1"
+  }
+}

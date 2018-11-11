@@ -1,0 +1,21 @@
+.App {
+  position: absolute;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+}
+
+.Messages {
+  height: 90%;
+  max-height: 90%;
+  overflow: scroll;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
