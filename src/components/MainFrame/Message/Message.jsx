@@ -5,7 +5,7 @@ export default function Message (props) {
   const { message } = props
   return (
     <div className='Message'>
-      <span>{message.author}:</span>
+      <span>{message.author.name}:</span>
       &nbsp;
       <span>{message.content}</span>
     </div>

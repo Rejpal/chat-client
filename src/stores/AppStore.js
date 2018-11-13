@@ -1,6 +1,7 @@
 // @flow
 import { types } from 'mobx-state-tree'
 import { sendMessage as socketSendMessage } from '../api/socket'
+import uuidv4 from 'uuid/v4'
 
 type Readed = {
   reader: string,
@@ -21,10 +22,30 @@ const ReadBy = types
     readAt: types.Date
   })
 
+const User = types
+  .model('User', {
+    id: types.string,
+    name: types.string
+  })
+  .views(self => ({
+    getUserName (): string {
+      return self.name
+    },
+
+    isNameEmpty (): boolean {
+      return self.name === ''
+    }
+  }))
+  .actions(self => ({
+    setUserName (newName: string) {
+      self.name = newName
+    }
+  }))
+
 const Message = types
   .model('Message', {
     id: types.string,
-    author: types.string,
+    author: User,
     content: types.string,
     created: types.Date,
     read: types.array(ReadBy)
@@ -36,10 +57,11 @@ const Message = types
   }))
 
 export const AppStore = types.model('AppStore', {
+  user: User,
   messages: types.array(Message),
   currentMessage: types.optional(Message, {
     id: '1',
-    author: 'Roman',
+    author: { id: '1', name: '' },
     content: '',
     created: Date.now(),
     read: []
@@ -78,12 +100,11 @@ export const AppStore = types.model('AppStore', {
   .actions(self => {
     function sendMessage (message?: IMessage) {
       const messageToSend = message || self.currentMessage
-      messageToSend.id = String(Math.random() * 1000000)
-      // self.messages.push(clone(messageToSend))
+      messageToSend.id = uuidv4()
       socketSendMessage(messageToSend)
       self.currentMessage = {
-        id: 'dummyId',
-        author: 'Roman',
+        id: uuidv4(),
+        author: { ...self.user },
         content: '',
         created: Date.now(),
         read: []
@@ -99,7 +120,7 @@ export const AppStore = types.model('AppStore', {
     function updateCurrentMessage (newChar: string) {
       self.currentMessage = {
         id: 'dummyId',
-        author: 'Roman',
+        author: { ...self.user },
         content: self.currentMessage.content + newChar || '',
         created: Date.now(),
         read: []
@@ -113,7 +134,13 @@ export const AppStore = types.model('AppStore', {
     }
   })
 
-const appStore = AppStore.create({ messages: [] })
+const appStore = AppStore.create({
+  messages: [],
+  user: {
+    id: uuidv4(),
+    name: ''
+  }
+})
 window.appStore = appStore
 
 export default appStore

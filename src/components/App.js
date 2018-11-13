@@ -2,30 +2,24 @@ import React, { Component } from 'react'
 import { Provider, observer } from 'mobx-react'
 import './App.css'
 
-import ReplyBox from './ReplyBox/ReplyBox'
-import Message from './Message/Message'
-
+import MainFrame from './MainFrame/MainFrame'
 import AppStore from '../stores/AppStore'
 
 class App extends Component {
-  renderMessages () {
-    const messages = AppStore.getMessages()
-    const messageComponents = []
-    messages.forEach((message) => {
-      messageComponents.push(<Message message={message} key={message.id} />)
-    })
-
-    return messageComponents
+  renderMainContent () {
+    // if (AppStore.user.getUserName() === '') {
+    //   return <div>Enter Name first:</div>
+    // }
+    return (
+      <Provider appStore={AppStore} />
+    )
   }
 
   render () {
     return (
       <Provider appStore={AppStore} >
-        <div className='App'>
-          <div className='Messages'>
-            {this.renderMessages()}
-          </div>
-          <ReplyBox />
+        <div className='App' >
+          <MainFrame />
         </div>
       </Provider>
     )

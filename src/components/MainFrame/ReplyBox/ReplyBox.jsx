@@ -18,6 +18,10 @@ class ReplyBox extends Component<Props> {
     this.textInput = React.createRef()
   }
 
+  componentDidMount () {
+    this.textInput.current.focus()
+  }
+
   handleChangeMessage = (e: React.SyntheticKeyboardEvent) => {
     if (e.charCode === ENTER_KEY) {
       this.handleSend()
