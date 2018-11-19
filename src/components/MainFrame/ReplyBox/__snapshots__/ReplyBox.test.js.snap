@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ReplyBox> should render 1`] = `
+<ReplyBox
+  appStore={
+    Object {
+      "getCurrentMessageText": [Function],
+    }
+  }
+>
+  <div
+    className="ReplyBoxWrapper"
+  >
+    <div
+      className="ReplyBox"
+    >
+      <textarea
+        onKeyPress={[Function]}
+        value=""
+      />
+      <button
+        onClick={[Function]}
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</ReplyBox>
+`;
+
+exports[`<ReplyBox> should render with text in the input 1`] = `
+<ReplyBox
+  appStore={
+    Object {
+      "getCurrentMessageText": [Function],
+    }
+  }
+>
+  <div
+    className="ReplyBoxWrapper"
+  >
+    <div
+      className="ReplyBox"
+    >
+      <textarea
+        onKeyPress={[Function]}
+        value="test text"
+      />
+      <button
+        onClick={[Function]}
+      >
+        Send
+      </button>
+    </div>
+  </div>
+</ReplyBox>
+`;

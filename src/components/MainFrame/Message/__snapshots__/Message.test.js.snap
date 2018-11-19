@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Message shouldRender a message 1`] = `
+<div
+  className="Message"
+>
+  <span>
+    tester
+    :
+  </span>
+   
+  <span>
+    Test Message
+  </span>
+</div>
+`;

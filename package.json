@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.7.0",
     "flow-bin": "^0.84.0",
     "flow-typed": "^2.5.1",
     "mobx": "^5.5.2",
@@ -10,7 +12,8 @@
     "mobx-state-tree": "^3.7.1",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5",
+    "react-scripts": "2.1.1",
+    "react-test-renderer": "^16.6.3",
     "socket.io-client": "^2.1.1",
     "uuid": "^3.3.2"
   },
@@ -41,6 +44,11 @@
       "fetch"
     ]
   },
+  "jest": {
+    "snapshotSerializers": [
+      "<rootDir>/node_modules/enzyme-to-json/serializer"
+    ]
+  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -48,6 +56,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "enzyme-to-json": "^3.3.4",
     "eslint-plugin-flowtype": "^3.1.4",
     "standard": "^12.0.1"
   }

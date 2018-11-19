@@ -8,7 +8,7 @@ type Props = {
   appStore: any
 }
 
-class ReplyBox extends Component<Props> {
+export class ReplyBox extends Component<Props> {
   static defaultProps = {
     appStore: null
   }

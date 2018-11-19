@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<Provider
+  appStore={
+    Object {
+      "currentMessage": Object {
+        "author": Object {
+          "id": "1",
+          "name": "",
+        },
+        "content": "",
+        "created": 1542149090725,
+        "id": "1",
+        "read": Array [],
+      },
+      "messages": Array [],
+      "user": Object {
+        "id": "ed9f9fc6-3b2a-48a3-acca-c4f6e75d3a21",
+        "name": "",
+      },
+    }
+  }
+>
+  <div
+    className="App"
+  >
+    <[object Object] />
+  </div>
+</Provider>
+`;

@@ -5,16 +5,7 @@ import './App.css'
 import MainFrame from './MainFrame/MainFrame'
 import AppStore from '../stores/AppStore'
 
-class App extends Component {
-  renderMainContent () {
-    // if (AppStore.user.getUserName() === '') {
-    //   return <div>Enter Name first:</div>
-    // }
-    return (
-      <Provider appStore={AppStore} />
-    )
-  }
-
+export class App extends Component {
   render () {
     return (
       <Provider appStore={AppStore} >

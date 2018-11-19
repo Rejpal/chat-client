@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<MainFrame> should render userForm when userName is empty 1`] = `<inject-UserForm-with-appStore />`;
+
+exports[`<MainFrame> should render when userName is not empty and there are no messages 1`] = `
+<Fragment>
+  <div
+    className="Messages"
+  />
+  <inject-ReplyBox-with-appStore />
+</Fragment>
+`;
+
+exports[`<MainFrame> should render when userName is not empty and there are some messages 1`] = `
+<Fragment>
+  <div
+    className="Messages"
+  >
+    <Message
+      key="1"
+      message={
+        Object {
+          "id": "1",
+        }
+      }
+    />
+    <Message
+      key="2"
+      message={
+        Object {
+          "id": "2",
+        }
+      }
+    />
+  </div>
+  <inject-ReplyBox-with-appStore />
+</Fragment>
+`;

@@ -5,7 +5,7 @@ import UserForm from './UserForm/UserForm'
 import ReplyBox from './ReplyBox/ReplyBox'
 import Message from './Message/Message'
 
-export class MainFrame extends Component {
+class MainFrame extends Component {
   renderMessages () {
     const messages = this.props.appStore.getMessages()
     const messageComponents = []
@@ -33,3 +33,6 @@ export class MainFrame extends Component {
 }
 
 export default inject('appStore')(observer(MainFrame))
+module.exports = {
+  MainFrame
+}
